@@ -1,0 +1,18 @@
+project_name: Phisher2025
+languages: [en, sw, zh, ru]
+model:
+  type: hybrid_cnn_lstm
+  embedding_model: xlm-roberta-base
+  max_seq_len: 256
+  cnn_filters: 128
+  lstm_units: 64
+  dropout: 0.5
+training:
+  batch_size: 32
+  epochs: 1
+  learning_rate: 0.001
+adversarial:
+  enabled: true
+  methods:
+    - synonym_substitution
+    - url_obfuscation

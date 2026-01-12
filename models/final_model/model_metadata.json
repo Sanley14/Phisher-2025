@@ -1,0 +1,20 @@
+{
+  "model_path": "models\\final_model\\model_final.keras",
+  "history": {
+    "accuracy": [
+      0.741428554058075
+    ],
+    "loss": [
+      0.5918638110160828
+    ],
+    "val_accuracy": [
+      1.0
+    ],
+    "val_loss": [
+      0.17436274886131287
+    ],
+    "learning_rate": [
+      0.0010000000474974513
+    ]
+  }
+}

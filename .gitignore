@@ -1,0 +1,68 @@
+__pycache__/
+*.pyc
+data/raw/
+data/interim/
+models/checkpoints/
+logs/
+.env
+.vscode/
+
+.venv/
+.venv310/
+.venv312/
+
+# Additional Python ignores
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Models (large files, exclude unless needed)
+models/final_model/*.h5
+models/final_model/*.keras
+
+# Temporary files
+*.tmp
+*.swp
+*.bak
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Deployment
+deployment/docker/.env
