@@ -1,0 +1,48 @@
+# CI/CD pipeline template (example: GitHub Actions or Azure Pipelines style)
+# Replace placeholders with your CI provider's syntax as needed.
+
+# Steps:
+# 1. Checkout
+# 2. Set up Python
+# 3. Install deps
+# 4. Run tests
+# 5. Build Docker image
+# 6. Push image to registry
+# 7. Deploy to staging/production
+
+stages:
+  - name: test
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: install deps
+        run: |
+          pip install -r requirements.txt
+
+      - name: run tests
+        run: |
+          pytest -q
+
+  - name: build_and_push
+    steps:
+      - name: build docker
+        run: |
+          docker build -t ${{ secrets.REGISTRY }}/phisher:${{ github.sha }} -f deployment/docker/Dockerfile .
+
+      - name: push docker
+        run: |
+          echo ${{ secrets.REGISTRY_PASSWORD }} | docker login ${{ secrets.REGISTRY }} -u ${{ secrets.REGISTRY_USER }} --password-stdin
+          docker push ${{ secrets.REGISTRY }}/phisher:${{ github.sha }}
+
+  - name: deploy
+    steps:
+      - name: deploy to staging
+        run: |
+          # Implement your deployment step: kubectl, cloud CLI, or provider action
+          echo "Deploy step placeholder — add cloud provider deployment commands here"
